@@ -1,28 +1,33 @@
 import React from 'react';
-import Constants from 'expo-constants';
 import { StyleSheet, View } from 'react-native';
-import RepositoryList from './RepositoryList';
 import AppBar from './AppBar';
 import { Route, Routes, Navigate } from 'react-router-native';
 import SignIn from './SignIn';
+import Repositories from './Repositories';
+import Repository from './Repository';
+import CreateReview from './CreateReview';
+import SignUp from './SignUp';
+import MyReviews from './MyReviews';
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: Constants.statusBarHeight,
     flexGrow: 1,
     flexShrink: 1,
   },
 });
 
-const Main = () => {
-
+const Main = ({ authStorage }) => {
   return (
     <View style={styles.container}>
-      <AppBar />
+      <AppBar authStorage={authStorage} />
       <Routes>
-        <Route path='/' element={<RepositoryList />} />
+        <Route path='/' element={<Repositories />} />
         <Route path='/signin' element={<SignIn />} />
+        <Route path='/:id' element={<Repository />} />
         <Route path='*' element={<Navigate to='/' />} />
+        <Route path='/createReview' element={<CreateReview />}/>
+        <Route path='/signup'  element={<SignUp />} />
+        <Route path='/myReviews'  element={<MyReviews />} />
       </Routes>
     </View>
   );

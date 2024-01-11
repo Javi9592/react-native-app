@@ -13,12 +13,12 @@ const styles = StyleSheet.create({
   },
 });
 
-const StylesTextInput = ({style = {}, ...props}) => {
-    const inputStyle = {
-        ...styles.textInput,
-        ...style
-    }
-    return <TextInput style={inputStyle} {...props} />
-}
+const StylesTextInput = ({ style = {}, ...props }) => {
+  const inputStyle = {
+    ...styles.textInput,
+    ...style,
+  };
+  return <TextInput style={inputStyle} {...props} />;
+};
 
 export default StylesTextInput;

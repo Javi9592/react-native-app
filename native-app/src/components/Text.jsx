@@ -25,9 +25,12 @@ const styles = StyleSheet.create({
   textAlignCenter: {
     textAlign: 'center',
   },
+  white: {
+    color: '#ffffff'
+  }
 });
 
-const Text = ({ align, color, fontSize, fontWeight, style, ...props }) => {
+const Text = ({ white, align, color, fontSize, fontWeight, style, ...props }) => {
   const textStyle = [
     styles.text,
     align === 'center' && styles.textAlignCenter,
@@ -35,6 +38,7 @@ const Text = ({ align, color, fontSize, fontWeight, style, ...props }) => {
     color === 'primary' && styles.colorPrimary,
     fontSize === 'subheading' && styles.fontSizeSubheading,
     fontWeight === 'bold' && styles.fontWeightBold,
+    color === 'white' && styles.white,
     style,
   ];
 
